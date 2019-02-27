@@ -11,6 +11,7 @@ class Academus {
     private $URL_ACADEMUS = 'http://academus.sk/denne-menu/';
     private $HTML;
     private $menu = array();
+    private $menuByDay = array();
 
     /**
      * Academus constructor.
@@ -20,6 +21,7 @@ class Academus {
         $dataProvider = new DataProvider($this->URL_ACADEMUS);
         $this->HTML = $dataProvider->getContent();
         $this->getMenus($this->HTML);
+        $this->getMenuByCurrentDay();
     }
 
     public function getMenus($HTML_code)
@@ -53,12 +55,22 @@ class Academus {
     /**
      * @return array
      */
-    public function getMenu()
+    public function getAcademusMenu()
     {
-        return $this->menu;
+        return $this->menuByDay;
+    }
+
+    private function getMenuByCurrentDay()
+    {
+        $tmp_menu = array();
+        $valueOfDay = date('N', time())-1;
+        foreach ($this->menu as $item)
+        {
+            array_push($tmp_menu,$item[$valueOfDay]);
+        }
+        $this->menuByDay = array_values($tmp_menu);
     }
 }
-
 
 
 

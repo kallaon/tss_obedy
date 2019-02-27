@@ -58,12 +58,11 @@ class Portofino {
     /**
      * @return array
      */
-    public function getMenu()
+    public function getPortofinoMenu()
     {
         return $this->menu;
     }
 }
-
 
 
 
