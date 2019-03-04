@@ -16,13 +16,11 @@ class MyPDO extends PDO
         ));
     }
 
-    public function runQuery( $sql ) {
-        try {
-            $count = $this->exec($sql) or print_r($this->errorInfo());
-        } catch(PDOException $e) {
-            echo __LINE__.$e->getMessage();
-        }
-        return $count;
+    public function truncateDBbyClass($table)
+    {
+        $sql = "TRUNCATE TABLE " . strtolower($table);
+        $statement = $this->prepare($sql);
+        $statement->execute();
     }
 
     public function addFoodByClass($food, $table)

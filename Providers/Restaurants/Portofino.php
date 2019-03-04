@@ -60,10 +60,13 @@ class Portofino {
      */
     public function getPortofinoMenu()
     {
-        return $this->menu;
+        if (!empty($this->menu)){
+            return $this->menu;
+        } else {
+            return array();
+        }
     }
 }
-
 
 
 

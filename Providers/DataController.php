@@ -20,7 +20,7 @@ class DataController
         try {
             $this->PDO = new MyPDO();
         } catch (exception $e) {
-            print_r(e);
+            print_r($e);
         }
     }
 
@@ -36,14 +36,8 @@ class DataController
         return $this->PDO->getMenuByClass($class);
     }
 
-
-/*$academus = new Academus();
-$menu_academus = $academus->getMenu();
-
-$portofino = new Portofino();
-$menu_portofino = $portofino->getMenu();
-
-$fanusik = new Fanusik();
-$pole2 = $fanusik->getMenu();*/
+    public function truncateDB($class)
+    {
+        $this->PDO->truncateDBbyClass($class);
+    }
 }
-
