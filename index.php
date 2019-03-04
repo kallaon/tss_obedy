@@ -13,30 +13,6 @@ header("Content-Type: text/html; charset=utf-8");
 require_once 'Providers/DataController.php';
 
 $dataController = new DataController();
-//$dataProvider = new DataProvider("http://ukolena.sk/denne-menu/");
-//$html = $dataProvider->getContent();
-//
-////menu všetky
-//
-//$regex = "/<!-- " . "PONDELOK" . " -->(.*?)<!-- " . "UTOROK" . " -->/s";
-//preg_match_all ($regex, $html,$match);
-//$selectedMatch = $match[1];
-//
-//
-//
-//
-//var_dump($emptyRemoved);
-//die();
-//foreach ($tmp as $item) {
-//    trim($item);
-//    if (empty($item))
-//    {
-//        unset($tmp[$count]);
-//    }
-//    $count++;
-//}
-//var_dump($tmp);
-
 
 $menu_portofino = $dataController->getMenu(Portofino::class);
 $menu_academus = $dataController->getMenu(Academus::class);
